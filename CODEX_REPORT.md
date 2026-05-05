@@ -75,23 +75,33 @@ Current git status:
 
 - Deterministic demo page: `/home/sean/Projects/darktable-omarchy-native/demo/index.html`
 - Deterministic screenshot artifact: `/home/sean/Projects/darktable-omarchy-native/artifacts/screenshots/omarchy-darktable-demo.svg`
+- Deterministic screenshot PNG: `/home/sean/Projects/darktable-omarchy-native/artifacts/screenshots/omarchy-darktable-demo.png`
 - Optional live capture target: `/home/sean/Projects/darktable-omarchy-native/artifacts/screenshots/darktable-live.png`
 
 ## Blockers
 
-Live Darktable capture was attempted with a temporary config and in-memory library:
+Live Darktable capture was attempted with a temporary config and in-memory library by Codex and again by the controller after commit:
 
 ```bash
 WAIT_SECONDS=5 ./scripts/capture-darktable.sh
+WAIT_SECONDS=10 ./scripts/capture-darktable.sh
 ```
 
-It failed in the sandbox because GTK could not open the display:
+Codex's sandbox attempt could not open the display:
 
 ```text
 (darktable:11): Gtk-WARNING **: cannot open display: :1
 ```
 
-The script is present for a normal desktop shell and does not mutate the user's standard Darktable config.
+The controller attempt reached the local Wayland/GDK session but `grim` could not see a `wl_output`, and Darktable/GDK logged monitor/display assertion failures:
+
+```text
+no wl_output
+Gdk-CRITICAL **: gdk_monitor_get_display: assertion 'GDK_IS_MONITOR (monitor)' failed
+Gtk-WARNING **: drawing failure for widget 'GtkWindow': invalid matrix (not invertible)
+```
+
+The script is present for a normal interactive desktop shell and does not mutate the user's standard Darktable config.
 
 ## Recommended Next Step
 
