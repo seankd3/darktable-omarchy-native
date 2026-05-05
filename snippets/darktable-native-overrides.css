@@ -1,0 +1,238 @@
+/*
+ * Downstream Omarchy Native Kit Darktable integration layer.
+ *
+ * This layer is intentionally app-specific. It assumes the ONK-generated
+ * @define-color omarchy_* roles already exist above it in the generated file.
+ */
+
+@define-color dt_omarchy_panel_bg @omarchy_surface;
+@define-color dt_omarchy_panel_fg @omarchy_surface_foreground;
+@define-color dt_omarchy_panel_hover_bg @omarchy_surface_raised;
+@define-color dt_omarchy_panel_hover_fg @omarchy_surface_raised_foreground;
+@define-color dt_omarchy_field_bg @omarchy_background;
+@define-color dt_omarchy_field_fg @omarchy_foreground;
+@define-color dt_omarchy_disabled_fg alpha(@omarchy_muted_foreground, 0.58);
+@define-color dt_omarchy_shadow #000000;
+
+@define-color selected_bg_color @omarchy_accent;
+@define-color selected_fg_color @omarchy_accent_foreground;
+@define-color border_color @omarchy_border;
+@define-color bg_color @omarchy_background;
+@define-color fg_color @omarchy_foreground;
+@define-color base_color @dt_omarchy_field_bg;
+@define-color text_color @dt_omarchy_field_fg;
+@define-color placeholder_text_color @omarchy_muted_foreground;
+@define-color disabled_fg_color @dt_omarchy_disabled_fg;
+
+@define-color scroll_bar_inactive alpha(@omarchy_muted_foreground, 0.38);
+@define-color scroll_bar_active @omarchy_accent;
+@define-color scroll_bar_bg alpha(@dt_omarchy_shadow, 0.28);
+
+@define-color plugin_bg_color @dt_omarchy_panel_bg;
+@define-color section_label @omarchy_foreground;
+@define-color plugin_label_color @omarchy_muted_foreground;
+@define-color collapsible_bg_color @omarchy_surface_raised;
+
+@define-color bauhaus_bg alpha(@omarchy_background, 0.62);
+@define-color bauhaus_fg @omarchy_foreground;
+@define-color bauhaus_border @omarchy_border;
+@define-color bauhaus_indicator_border @omarchy_border_strong;
+@define-color bauhaus_fill @omarchy_accent;
+@define-color bauhaus_bg_hover @omarchy_surface_raised;
+@define-color bauhaus_fg_hover @omarchy_surface_raised_foreground;
+@define-color bauhaus_fg_selected @omarchy_accent_foreground;
+@define-color bauhaus_fg_insensitive @dt_omarchy_disabled_fg;
+
+@define-color button_bg @omarchy_surface;
+@define-color button_fg @omarchy_surface_foreground;
+@define-color button_border @omarchy_border;
+@define-color button_hover_bg @omarchy_surface_raised;
+@define-color button_hover_fg @omarchy_surface_raised_foreground;
+
+@define-color field_bg @dt_omarchy_field_bg;
+@define-color field_fg @dt_omarchy_field_fg;
+@define-color field_active_bg @omarchy_surface;
+@define-color field_active_fg @omarchy_foreground;
+@define-color field_selected_bg @omarchy_accent;
+@define-color field_selected_fg @omarchy_accent_foreground;
+@define-color field_hover_bg @omarchy_surface_raised;
+@define-color field_hover_fg @omarchy_surface_raised_foreground;
+
+@define-color tooltip_bg_color @omarchy_surface_raised;
+@define-color tooltip_fg_color @omarchy_surface_raised_foreground;
+@define-color really_dark_bg_color @omarchy_background;
+@define-color log_fg_color @omarchy_foreground;
+
+@define-color darkroom_bg_color @omarchy_photo_canvas;
+@define-color darkroom_preview_bg_color @omarchy_photo_canvas;
+@define-color lighttable_bg_color @omarchy_photo_canvas;
+@define-color lighttable_preview_bg_color @omarchy_photo_canvas;
+@define-color lighttable_bg_font_color @omarchy_photo_canvas_foreground;
+@define-color print_bg_color @omarchy_photo_canvas;
+
+@define-color thumbnail_font_color @omarchy_photo_canvas_foreground;
+@define-color thumbnail_bg_color @omarchy_photo_canvas;
+@define-color thumbnail_star_bg_color @omarchy_photo_canvas_border;
+@define-color thumbnail_star_hover_color @omarchy_photo_canvas_foreground;
+@define-color thumbnail_localcopy @omarchy_info;
+@define-color thumbnail_localcopy_color @omarchy_info;
+@define-color thumbnail_fg_color @omarchy_photo_canvas_foreground;
+@define-color thumbnail_bg50_color @omarchy_photo_canvas_border;
+@define-color thumbnail_selected_bg_color @omarchy_accent;
+@define-color thumbnail_hover_bg_color @omarchy_photo_canvas_border;
+@define-color thumbnail_hover_fg_color @omarchy_photo_canvas_foreground;
+@define-color filmstrip_bg_color @omarchy_photo_canvas;
+@define-color timeline_bg_color @omarchy_photo_canvas_border;
+@define-color timeline_fg_color @omarchy_photo_canvas_foreground;
+
+@define-color graph_bg @omarchy_photo_canvas;
+@define-color graph_exterior @omarchy_photo_canvas_border;
+@define-color graph_border @omarchy_photo_canvas_border;
+@define-color graph_fg @omarchy_photo_canvas_foreground;
+@define-color graph_fg_active #ffffff;
+@define-color graph_grid alpha(@omarchy_photo_canvas_foreground, 0.18);
+@define-color graph_overlay alpha(@omarchy_photo_canvas_foreground, 0.38);
+
+window, dialog, popover, menu, tooltip,
+.background, .csd, .view, box, grid, paned {
+  background-color: @omarchy_background;
+  color: @omarchy_foreground;
+}
+
+#left, #right, #top, #bottom, #header-toolbar, #iop-panel,
+#lib-panel, #styles-panel, #metadata-panel, #bottom-border,
+.dt_module, .dt_lib_module, .dt_iop_module, .dt_module_controls,
+.dt_module_header, .dt_lib_module_header {
+  background-color: @dt_omarchy_panel_bg;
+  color: @dt_omarchy_panel_fg;
+  border-color: @omarchy_border;
+}
+
+.dt_module_header:hover, .dt_lib_module_header:hover,
+.dt_module:hover, .dt_lib_module:hover,
+button:hover, togglebutton:hover, combobox:hover, spinbutton:hover,
+entry:hover, treeview.view:hover, row:hover {
+  background-color: @dt_omarchy_panel_hover_bg;
+  color: @dt_omarchy_panel_hover_fg;
+  border-color: @omarchy_border_strong;
+}
+
+button, togglebutton, modelbutton, entry, searchentry, spinbutton,
+combobox, combobox box, list, list row, treeview.view, notebook tab {
+  background-color: @omarchy_surface;
+  color: @omarchy_surface_foreground;
+  border-color: @omarchy_border;
+}
+
+button:checked, togglebutton:checked, modelbutton:checked,
+button:active, togglebutton:active, notebook tab:checked,
+notebook tab:active, row:selected, treeview.view:selected,
+treeview.view:selected:focus, .dt_module_btn:checked {
+  background-color: @omarchy_accent;
+  color: @omarchy_accent_foreground;
+  border-color: @omarchy_accent;
+}
+
+button:focus, togglebutton:focus, entry:focus, searchentry:focus,
+spinbutton:focus, combobox:focus, scale:focus, scrollbar:focus,
+treeview.view:focus, row:focus, notebook tab:focus {
+  outline-color: @omarchy_accent;
+  border-color: @omarchy_accent;
+}
+
+button:disabled, togglebutton:disabled, entry:disabled, label:disabled,
+combobox:disabled, spinbutton:disabled, scale:disabled {
+  color: @dt_omarchy_disabled_fg;
+}
+
+.dt_bauhaus, #bauhaus-combobox, #bauhaus-slider,
+.dt_bauhaus_popup, .dt_bauhaus_alignment {
+  background-color: @bauhaus_bg;
+  color: @bauhaus_fg;
+  border-color: @bauhaus_border;
+}
+
+.dt_bauhaus:hover, #bauhaus-combobox:hover, #bauhaus-slider:hover,
+.dt_bauhaus_popup row:hover {
+  background-color: @bauhaus_bg_hover;
+  color: @bauhaus_fg_hover;
+}
+
+scale trough, scale slider, scale highlight,
+scrollbar trough, scrollbar slider {
+  border-color: @omarchy_border;
+}
+
+scrollbar trough {
+  background-color: @scroll_bar_bg;
+}
+
+scrollbar slider {
+  background-color: @scroll_bar_inactive;
+}
+
+scrollbar slider:hover, scrollbar slider:active,
+scale highlight {
+  background-color: @scroll_bar_active;
+}
+
+tooltip, .tooltip, popover, popover contents, menu, menuitem {
+  background-color: @tooltip_bg_color;
+  color: @tooltip_fg_color;
+  border-color: @omarchy_border_strong;
+}
+
+dialog, messagedialog, filechooser, .dialog-action-area {
+  background-color: @omarchy_background;
+  color: @omarchy_foreground;
+  border-color: @omarchy_border;
+}
+
+.dt_section_label, .dt_section_expander, expander title,
+notebook header, notebook tabs, tab {
+  color: @section_label;
+  border-color: @omarchy_border;
+}
+
+.dt_warning, .warning, infobar.warning {
+  background-color: @omarchy_warning;
+  color: @omarchy_warning_foreground;
+}
+
+.dt_error, .error, infobar.error {
+  background-color: @omarchy_danger;
+  color: @omarchy_danger_foreground;
+}
+
+.dt_success, .success, infobar.success {
+  background-color: @omarchy_success;
+  color: @omarchy_success_foreground;
+}
+
+.dt_info, .info, infobar.info {
+  background-color: @omarchy_info;
+  color: @omarchy_info_foreground;
+}
+
+#center, #preview, #thumbtable, #filmstrip, #culling, #darkroom,
+#lighttable, #print, #slideshow, #map, #main-image, #image-container,
+#thumb-main, #thumb-image, #thumb-back, .dt_view, .dt_image,
+.dt_preview, .dt_thumbnail, .dt_overlays_hover_extended,
+.dt_overlays_mixed, .dt_overlays_hover {
+  background-color: @omarchy_photo_canvas;
+  color: @omarchy_photo_canvas_foreground;
+  border-color: @omarchy_photo_canvas_border;
+}
+
+#thumb-main:hover #thumb-back, #thumb-main:selected #thumb-back,
+.dt_thumbnail:hover, .dt_thumbnail:selected {
+  background-color: @omarchy_photo_canvas_border;
+  color: @omarchy_photo_canvas_foreground;
+}
+
+.dt_colorpicker, .dt_monospace, #histogram, #navigation,
+#navigation_box, #mask_manager, .dt_masks_form_gui {
+  background-color: @omarchy_photo_canvas;
+  color: @omarchy_photo_canvas_foreground;
+  border-color: @omarchy_photo_canvas_border;
+}

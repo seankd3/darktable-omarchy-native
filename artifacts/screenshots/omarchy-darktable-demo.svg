@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="Omarchy Darktable theme static demo">
+  <defs>
+    <linearGradient id="photoSky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#60656a"/>
+      <stop offset="1" stop-color="#8c8f88"/>
+    </linearGradient>
+    <linearGradient id="photoGround" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#3f3b33"/>
+      <stop offset="1" stop-color="#171817"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="#101216"/>
+  <rect x="0" y="0" width="280" height="900" fill="#151820"/>
+  <rect x="1160" y="0" width="280" height="900" fill="#151820"/>
+  <rect x="279" y="0" width="1" height="900" fill="#44464a"/>
+  <rect x="1160" y="0" width="1" height="900" fill="#44464a"/>
+  <rect x="280" y="0" width="880" height="46" fill="#151820"/>
+  <rect x="280" y="46" width="880" height="758" fill="#262626"/>
+  <rect x="280" y="804" width="880" height="96" fill="#262626"/>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="16" fill="#e7eaf0">
+    <rect x="12" y="12" width="42" height="32" fill="#7aa2f7" stroke="#7aa2f7"/>
+    <text x="25" y="33" fill="#111827" text-anchor="middle" font-size="13">LT</text>
+    <rect x="62" y="12" width="42" height="32" fill="#151820" stroke="#44464a"/>
+    <text x="83" y="33" fill="#e7eaf0" text-anchor="middle" font-size="13">DR</text>
+    <rect x="112" y="12" width="42" height="32" fill="#151820" stroke="#44464a"/>
+    <text x="133" y="33" fill="#e7eaf0" text-anchor="middle" font-size="13">EX</text>
+
+    <rect x="10" y="62" width="260" height="108" fill="#12151b" stroke="#44464a"/>
+    <rect x="10" y="62" width="260" height="34" fill="#151820" stroke="#44464a"/>
+    <text x="22" y="84" font-weight="700">Import</text>
+    <rect x="22" y="108" width="236" height="28" fill="#151820" stroke="#44464a"/>
+    <text x="140" y="128" text-anchor="middle" font-size="13">Add to Library</text>
+
+    <rect x="10" y="184" width="260" height="186" fill="#12151b" stroke="#44464a"/>
+    <rect x="10" y="184" width="260" height="34" fill="#151820" stroke="#44464a"/>
+    <text x="22" y="206" font-weight="700">Collections</text>
+    <rect x="22" y="230" width="236" height="30" fill="#101216" stroke="#44464a"/>
+    <text x="34" y="251" fill="#e7eaf0" font-size="13">rated &gt;= 3</text>
+    <rect x="22" y="272" width="236" height="30" fill="#7aa2f7" stroke="#7aa2f7"/>
+    <text x="34" y="293" fill="#111827" font-size="13">2026 edits</text>
+    <rect x="22" y="310" width="236" height="30" fill="#151820" stroke="#44464a"/>
+    <text x="34" y="331" font-size="13">portraits</text>
+
+    <rect x="292" y="8" width="96" height="30" fill="#7aa2f7" stroke="#7aa2f7"/>
+    <text x="340" y="28" fill="#111827" text-anchor="middle" font-size="13">Lighttable</text>
+    <rect x="396" y="8" width="96" height="30" fill="#151820" stroke="#44464a"/>
+    <text x="444" y="28" font-size="13" text-anchor="middle">Darkroom</text>
+    <rect x="1050" y="8" width="96" height="30" fill="#7dcfff" stroke="#7dcfff"/>
+    <text x="1098" y="28" fill="#111827" font-size="13" text-anchor="middle">profile loaded</text>
+
+    <rect x="410" y="138" width="620" height="414" fill="#303030" stroke="#3a3a3a"/>
+    <rect x="411" y="139" width="618" height="182" fill="url(#photoSky)"/>
+    <path d="M411 390 L530 292 L690 368 L820 270 L1029 390 Z" fill="#2f3430"/>
+    <rect x="411" y="390" width="618" height="161" fill="url(#photoGround)"/>
+    <rect x="946" y="742" width="190" height="28" fill="#000000" fill-opacity="0.4" stroke="#7aa2f7"/>
+    <text x="1041" y="761" text-anchor="middle" fill="#e6e6e6" font-size="13">neutral review canvas</text>
+
+    <rect x="302" y="816" width="112" height="74" fill="#555555" stroke="#7aa2f7" stroke-width="2"/>
+    <rect x="426" y="816" width="112" height="74" fill="#444444" stroke="#3a3a3a" stroke-width="2"/>
+    <rect x="550" y="816" width="112" height="74" fill="#363636" stroke="#3a3a3a" stroke-width="2"/>
+    <rect x="674" y="816" width="112" height="74" fill="#505050" stroke="#3a3a3a" stroke-width="2"/>
+
+    <rect x="1172" y="62" width="256" height="148" fill="#12151b" stroke="#44464a"/>
+    <rect x="1172" y="62" width="256" height="34" fill="#151820" stroke="#44464a"/>
+    <text x="1184" y="84" font-weight="700">Exposure</text>
+    <text x="1184" y="122" fill="#abaeb3" font-size="13">Exposure</text>
+    <rect x="1184" y="132" width="232" height="10" fill="#101216" stroke="#44464a"/>
+    <rect x="1185" y="133" width="144" height="8" fill="#7aa2f7"/>
+    <text x="1184" y="166" fill="#abaeb3" font-size="13">Black level</text>
+    <rect x="1184" y="176" width="232" height="10" fill="#101216" stroke="#44464a"/>
+    <rect x="1185" y="177" width="88" height="8" fill="#7aa2f7"/>
+
+    <rect x="1172" y="224" width="256" height="136" fill="#12151b" stroke="#44464a"/>
+    <rect x="1172" y="224" width="256" height="34" fill="#151820" stroke="#44464a"/>
+    <text x="1184" y="246" font-weight="700">Color Calibration</text>
+    <rect x="1184" y="272" width="232" height="30" fill="#151820" stroke="#44464a"/>
+    <text x="1196" y="293" font-size="13">as shot in camera</text>
+    <rect x="1184" y="316" width="232" height="30" fill="#e0af68" stroke="#e0af68"/>
+    <text x="1196" y="337" fill="#111827" font-size="13">white balance conflict</text>
+  </g>
+</svg>

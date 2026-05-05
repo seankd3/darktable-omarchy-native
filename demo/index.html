@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Omarchy Darktable Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app" aria-label="Omarchy Darktable theme demo">
+      <aside class="panel left-panel">
+        <div class="toolbar">
+          <button class="icon-button active">LT</button>
+          <button class="icon-button">DR</button>
+          <button class="icon-button">EX</button>
+        </div>
+        <section class="module open">
+          <header>Import</header>
+          <button class="wide-button">Add to Library</button>
+          <button class="wide-button muted">Scan Folder</button>
+        </section>
+        <section class="module">
+          <header>Collections</header>
+          <input value="rated >= 3" aria-label="collection filter">
+          <div class="row selected">2026 edits</div>
+          <div class="row">portraits</div>
+          <div class="row">landscape tests</div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <button class="tab active">Lighttable</button>
+          <button class="tab">Darkroom</button>
+          <button class="tab">Map</button>
+          <div class="status info">profile loaded</div>
+        </header>
+        <div class="canvas">
+          <div class="photo">
+            <div class="sky"></div>
+            <div class="ridge"></div>
+            <div class="foreground"></div>
+          </div>
+          <div class="focus-ring">neutral review canvas</div>
+        </div>
+        <div class="filmstrip">
+          <div class="thumb selected"></div>
+          <div class="thumb"></div>
+          <div class="thumb"></div>
+          <div class="thumb"></div>
+        </div>
+      </section>
+
+      <aside class="panel right-panel">
+        <section class="module open">
+          <header>Exposure</header>
+          <label>Exposure</label>
+          <div class="slider"><span style="width: 62%"></span></div>
+          <label>Black level</label>
+          <div class="slider"><span style="width: 38%"></span></div>
+        </section>
+        <section class="module open">
+          <header>Color Calibration</header>
+          <select aria-label="illuminant"><option>as shot in camera</option></select>
+          <div class="row warning">white balance conflict</div>
+        </section>
+        <section class="module">
+          <header>Export</header>
+          <button class="wide-button active">Export selected</button>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>
