@@ -21,6 +21,33 @@ require_text() {
   rg -q -- "$pattern" "$file" || fail "missing pattern '$pattern' in $file"
 }
 
+require_failure_text() {
+  local pattern="$1"
+  shift
+  local output
+  if output="$("$@" 2>&1)"; then
+    fail "expected command to fail: $*"
+  fi
+  printf '%s' "$output" | rg -q -- "$pattern" || fail "expected failure matching '$pattern' from: $*"
+}
+
+require_failure_text "Invalid DARKTABLE_THEME_NAME" env \
+  SOURCE="$CSS" \
+  DARKTABLE_THEME_NAME="../escaped.css" \
+  "$ROOT_DIR/scripts/install-theme.sh"
+require_failure_text "Refusing to install outside" env \
+  DARKTABLE_THEME_DIR="$HOME/.config/darktable/themes/.." \
+  DARKTABLE_THEME_NAME="escaped.css" \
+  SOURCE="$CSS" \
+  "$ROOT_DIR/scripts/install-theme.sh"
+require_failure_text "Invalid DARKTABLE_THEME_NAME" env \
+  DARKTABLE_THEME_NAME="../escaped.css" \
+  "$ROOT_DIR/scripts/rollback.sh"
+require_failure_text "Refusing to remove outside" env \
+  DARKTABLE_THEME_DIR="$HOME/.config/darktable/themes/.." \
+  DARKTABLE_THEME_NAME="escaped.css" \
+  "$ROOT_DIR/scripts/rollback.sh"
+
 "$ROOT_DIR/scripts/generate-theme.sh" --colors "$FIXTURE" --out "$CSS" >/dev/null
 "$ROOT_DIR/scripts/export-demo.sh" >/dev/null
 
@@ -55,7 +82,9 @@ require_text "$CSS" "\\.dt_info"
 
 require_text "$ROOT_DIR/scripts/install-theme.sh" '\$HOME/.config/darktable/themes'
 require_text "$ROOT_DIR/scripts/install-theme.sh" "Refusing to overwrite non-generated theme"
+require_text "$ROOT_DIR/scripts/install-theme.sh" "Invalid DARKTABLE_THEME_NAME"
 require_text "$ROOT_DIR/scripts/rollback.sh" "Downstream Omarchy Native Kit Darktable integration layer"
+require_text "$ROOT_DIR/scripts/rollback.sh" "Invalid DARKTABLE_THEME_NAME"
 require_text "$ROOT_DIR/README.md" "rollback"
 require_text "$ROOT_DIR/docs/screenshot-workflow.md" "./scripts/capture-darktable.sh"
 require_text "$ROOT_DIR/scripts/capture-darktable.sh" "--conf ui_last/theme=omarchy"

@@ -52,7 +52,7 @@ Useful environment variables:
 
 - `ONK_CLI`: path to the Omarchy Native Kit CLI. Defaults to `../omarchy-native-kit/dist/cli.js`.
 - `DARKTABLE_THEME_DIR`: user theme install directory. Defaults to `$HOME/.config/darktable/themes`.
-- `DARKTABLE_THEME_NAME`: installed CSS filename. Defaults to `omarchy.css`.
+- `DARKTABLE_THEME_NAME`: installed CSS filename only. Defaults to `omarchy.css`.
 - `OMARCHY_THEME_DIR`: active Omarchy theme directory for watch mode. Defaults to `$HOME/.config/omarchy/current/theme`.
 
 ## Artifacts

@@ -3,7 +3,8 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE="${SOURCE:-$ROOT_DIR/artifacts/themes/omarchy-darktable.css}"
-TARGET_DIR="${DARKTABLE_THEME_DIR:-$HOME/.config/darktable/themes}"
+DEFAULT_THEME_DIR="$HOME/.config/darktable/themes"
+TARGET_DIR="${DARKTABLE_THEME_DIR:-$DEFAULT_THEME_DIR}"
 TARGET_NAME="${DARKTABLE_THEME_NAME:-omarchy.css}"
 TARGET="$TARGET_DIR/$TARGET_NAME"
 FORCE=0
@@ -45,8 +46,22 @@ if [ ! -f "$SOURCE" ]; then
   exit 1
 fi
 
-case "$TARGET" in
-  "$HOME"/.config/darktable/themes/*) ;;
+case "$TARGET_NAME" in
+  ""|"."|".."|*/*)
+    echo "Invalid DARKTABLE_THEME_NAME; expected a file name, got: $TARGET_NAME" >&2
+    exit 1
+    ;;
+esac
+
+if ! command -v realpath >/dev/null 2>&1; then
+  echo "realpath is required for safe target validation." >&2
+  exit 1
+fi
+
+BASE_REAL="$(realpath -m -- "$DEFAULT_THEME_DIR")"
+TARGET_REAL="$(realpath -m -- "$TARGET")"
+case "$TARGET_REAL" in
+  "$BASE_REAL"/*) ;;
   *)
     echo "Refusing to install outside \$HOME/.config/darktable/themes: $TARGET" >&2
     exit 1
